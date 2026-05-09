@@ -3,7 +3,7 @@ header, footer{
     width:100%;
     margin:0px;
     color:white;
-    background-color:navy;
+    background-color:rgb(33, 33, 33);
     font-family: Verdana, sans-serif;
     text-align: center;
 }
@@ -24,32 +24,38 @@ ul {
 li{
     display:inline;
     float: left;
-    width:16%;
+    width: 20%;
     
 }
 
 a {
-    background-color: transparent;
+    background-color: transparent; 
+    color: white;
+    text-decoration:none;
 }
 
 a:active {
-    background-color: rgb(0, 0, 100);
+    background-color: rgb(0, 0, 0);
+    text-decoration: underline;
+    color:tomato;
 }
 nav {
     width: 100%;
     left:0;
     padding: 40px;
     color:white;
-    background-color:navy;
-    font-family: Verdana, sans-serif;
+    background-color:rgb(33, 33, 33);
     overflow: auto; 
     text-align:center;
     border-top:2px solid white;
+    font-weight: bold;
+    font-size: larger;
 }
 
 aside {
     float:left;
     width: 30%;
+    margin-left: 10px;
 }
 
 div {
