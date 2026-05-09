@@ -1,33 +1,40 @@
-<table>
-    <caption>5. gyakorlat 1. feladat:<br>TÁBLÁZAT</caption>
-    <tr>
-        <th>Employee</th>
-        <th>Salary</th>
-        <th>Bonus</th>
-        <th>Supervisor</th>
-    </tr>
-    <tr>
-        <td>Stephen C. Cox</td>
-        <td>$300</td>
-        <td>$50</td>
-        <td>Bob</td>
-    </tr>
-    <tr>
-        <td>Josephin Tan</td>
-        <td>$150</td>
-        <td>-</td>
-        <td>Annie</td>
-    </tr>
-    <tr>
-        <td>Joyce Ming</td>
-        <td>$200</td>
-        <td>$35</td>
-        <td>Andy</td>
-    </tr>
-    <tr>
-        <td>James A. Pentel</td>
-        <td>$175</td>
-        <td>$25</td>
-        <td>Annie</td>
-    </tr>
-</table>
+<aside>
+            <h1>Táblázat</h1>
+        </aside>
+        <div>
+            <table id="">
+                <thead>
+                <tr> 
+                    <th>Azonosító</th>
+                    <th>Cím</th>
+                    <th>Gyártás</th>
+                    <th>Hossz</th>
+                    <th>Bemuató</th>
+                    <th>Youtube</th>
+                    <th>Műveltek</th>
+                </tr>
+                </thead>
+                <tbody class="nevsor" id="filmlista">
+                </tbody>
+            </table>
+            <div>
+                <form onsubmit="event.preventDefault();onFormSubmit();" id="filmform">
+                        <input type="hidden" id="id">
+                        <label>Cím:</label>
+                        <input type="text" name="cim" id="cim">
+                        <label>Gyártás:</label>
+                        <input type="text" name="gyartas" id="gyartas">
+                        <label>Hossz:</label>
+                        <input type="text" name="hossz" id="hossz">
+                        <label>Bemuató:</label>
+                        <input type="text" name="bemutato" id="bemutato">
+                        <label>Youtube:</label>
+                        <input type="text" name="youtube" id="youtube">
+                    </div>
+                    <div>
+                        <input type="submit" value="Hozzáad">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="./logicals/fetchapi.js"></script>
