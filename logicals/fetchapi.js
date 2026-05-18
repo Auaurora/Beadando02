@@ -9,7 +9,7 @@ function fetchKepzes() {
         .then(data => {
             let rows = "";
 data.readData.forEach( film => {
-    const filmJson = JSON.stringify(film).replace(/"/g, '&quot;');
+    // const filmJson = JSON.stringify(film).replace(/"/g, '&quot;');
 
     rows += `
     <tr>
@@ -20,8 +20,8 @@ data.readData.forEach( film => {
         <td>${film.bemutato}</td>
         <td>${film.youtube}</td>
         <td>
-            <a href="javascript:void(0)" onclick="editKepzes(${filmJson})">Edit</a> | 
-            <a href="javascript:void(0)" onclick="deleteKepzes(${film.id})">Delete</a>
+          <button onclick='editUser(${JSON.stringify(film)})'>Edit</button>
+                        <button onclick='deleteUser(${film.id})'>Delete</button>
         </td>
     </tr>`;
 });
@@ -55,7 +55,7 @@ function addKepzes(e) {
         e.target.reset();
         document.getElementById("message").innerText = data.status;
         document.getElementById("id").value = "";
-        fetchUsers();
+        fetchKepzes();
     });
 }
 
@@ -78,6 +78,6 @@ function deleteKepzes(id) {
     .then(res => res.json())
     .then(data => {
         document.getElementById("message").innerText = data.status;
-        fetchUsers();
+        fetchKepzes();
     });
 }

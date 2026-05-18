@@ -2,7 +2,7 @@
             <h1>Táblázat</h1>
         </aside>
         <div>
-            <table id="">
+            <table>
                 <thead>
                 <tr> 
                     <th>Azonosító</th>
