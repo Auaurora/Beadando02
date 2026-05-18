@@ -1,5 +1,5 @@
 const api = "api.php";
-document.getElementById("kepzesform").addEventListener("submit", addKepzes);
+document.getElementById("filmform").addEventListener("submit", addKepzes);
 window.onload = function() {
     fetchKepzes();
 };
@@ -8,35 +8,41 @@ function fetchKepzes() {
         .then(res => res.json())
         .then(data => {
             let rows = "";
-data.readData.forEach(user => {
-    const userJson = JSON.stringify(user).replace(/"/g, '&quot;');
+data.readData.forEach( film => {
+    const filmJson = JSON.stringify(film).replace(/"/g, '&quot;');
 
     rows += `
     <tr>
-        <td>${user.id}</td>
-        <td>${user.nev}</td>
-        <td>${user.felveheto}</td>
-        <td>${user.min}</td>
+        <td>${film.id}</td>
+        <td>${film.cim}</td>
+        <td>${film.gyartas}</td>
+        <td>${film.hossz}</td>
+        <td>${film.bemutato}</td>
+        <td>${film.youtube}</td>
         <td>
-            <a href="javascript:void(0)" onclick="editKepzes(${userJson})">Edit</a> | 
-            <a href="javascript:void(0)" onclick="deleteKepzes(${user.id})">Delete</a>
+            <a href="javascript:void(0)" onclick="editKepzes(${filmJson})">Edit</a> | 
+            <a href="javascript:void(0)" onclick="deleteKepzes(${film.id})">Delete</a>
         </td>
     </tr>`;
 });
-            document.getElementById("kepzeslista").innerHTML = rows;
+            document.getElementById("filmlista").innerHTML = rows;
         });
 }
 function addKepzes(e) {
     e.preventDefault();
     const id = document.getElementById("id").value;
-    const nev = document.getElementById("nev").value;
-    const felveheto = document.getElementById("felveheto").value;
-    const min = document.getElementById("min").value;
+    const cim = document.getElementById("cim").value;
+    const gyartas = document.getElementById("gyartas").value;
+    const hossz = document.getElementById("hossz").value;
+    const bemutato = document.getElementById("bemutato").value;
+    const youtube = document.getElementById("youtube").value;
     const data = {
         id: id,
-        nev: nev,
-        felveheto: felveheto,
-        min: min
+        cim: cim,
+        gyartas: gyartas,
+        hossz: hossz,
+        bemutato: bemutato,
+        youtube: youtube
     };
     const $method = id ? "PUT" : "POST";
     fetch(api, {
@@ -53,11 +59,13 @@ function addKepzes(e) {
     });
 }
 
-function editKepzes(user) {
-    document.getElementById("id").value = user.id;
-    document.getElementById("nev").value = user.nev;
-    document.getElementById("felveheto").value = user.felveheto;
-    document.getElementById("min").value = user.min;
+function editKepzes(film) {
+    document.getElementById("id").value = film.id;
+    document.getElementById("cim").value = film.cim;
+    document.getElementById("gyartas").value = film.gyartas;
+    document.getElementById("hossz").value = film.hossz;
+    document.getElementById("bemutato").value = film.bemutato;
+    document.getElementById("youtube").value = film.youtube;
 }
 
 function deleteKepzes(id) {
