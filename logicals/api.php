@@ -2,17 +2,19 @@
 header("Content-Type: application/json");
 require "db.php";
 $method = $_SERVER['REQUEST_METHOD'];
+
 switch ($method) {
     case 'GET':  
         try {
             $stmt = $pdo->query("SELECT * FROM filmek");
-            $readData=$stmt->fetchAll();
-            echo json_encode(['status' => 'Read success!', "readData"=>$readData]);
+            $readData = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+            echo json_encode(['status' => 'Read success!', "readData" => $readData]);
         }
         catch(PDOException $e) {
-          echo json_encode(['status' => 'Read error!']);
+            echo json_encode(['status' => 'Read error!']);
         }
         break;
+        
     case 'POST':
         try {
             $data = json_decode(file_get_contents("php://input"), true);
@@ -21,20 +23,28 @@ switch ($method) {
             echo json_encode(['status' => 'Create success!']);
         }
         catch(PDOException $e) {
-          echo json_encode(['status' => 'Create error!']);
+            echo json_encode(['status' => 'Create error!']);
         }
         break;
+        
     case 'PUT':
-        try {
-            $data = json_decode(file_get_contents("php://input"), true);
-            $stmt = $pdo->prepare("UPDATE filmek SET cim=?, gyartas=?, hossz=?, bemutato=?, youtube=? WHERE id=?");
-            $stmt->execute([$data['cim'], $data['gyartas'], $data['hossz'], $data['bemutato'], $data['youtube']]);
-            echo json_encode(['status' => 'Update success!']);
-        }
-        catch(PDOException $e) {
-          echo json_encode(['status' => 'Update error!']);
-        }
-        break;
+    try {
+        $data = json_decode(file_get_contents("php://input"), true);
+        $stmt = $pdo->prepare("UPDATE filmek SET cim=?, gyartas=?, hossz=?, bemutato=?, youtube=? WHERE id=?");
+        $stmt->execute([
+            $data['cim'], 
+            $data['gyartas'], 
+            $data['hossz'], 
+            $data['bemutato'], 
+            $data['youtube'], 
+            $data['id']
+        ]);
+        echo json_encode(['status' => 'Update success!']);
+    } catch(PDOException $e) {
+        echo json_encode(['status' => 'Update error: ' . $e->getMessage()]);
+    }
+    break;
+        
     case 'DELETE':
         try {
             $data = json_decode(file_get_contents("php://input"), true);
@@ -43,7 +53,8 @@ switch ($method) {
             echo json_encode(['status' => 'Delete success!']);
         }
         catch(PDOException $e) {
-          echo json_encode(['status' => 'Delete error!']);
+            echo json_encode(['status' => 'Delete error!']);
         }
         break;
 }
+?>

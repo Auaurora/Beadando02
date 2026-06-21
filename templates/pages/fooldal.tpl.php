@@ -1,17 +1,36 @@
-<h2>Bemutatkozás:</h2>
-<p>Üdvözöljük az oldalunkon!</p>
-<p>Ez a webolda a két világháború között készült magyar filmekre hivatott felhívni a figyelmet.</p>
-<video width="640" height="360" controls>
-  <source src="./images/video1.mp4" type="video/mp4">
-</video>
-<p><h3>Hyppolit, a lakáj (1931) részlet</h3></p>
-<iframe width="640" height="360"
-src="https://www.youtube.com/watch?v=NPgn87kSvY8?autoplay=1&mute=1&controls=1">
-</iframe>
-<p><h3>Meseautó (1934) részlet</h3></p>
-<h2>Adatok:</h2>
-<p>Ügyvezető: <strong>Valaki Az</strong></p>
-<p>E-mail: <strong>valaki.az@beadando.hu</strong></p>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2726.3375296155727!2d19.66695091525771!3d46.89607994478184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4743da7a6c479e1d%3A0xc8292b3f6dc69e7f!2sPallasz+Ath%C3%A9n%C3%A9+Egyetem+GAMF+Kar!5e0!3m2!1shu!2shu!4v1475753185783" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-<br>
-<a target="_blank" href="https://www.google.hu/maps/place/Pallasz+Ath%C3%A9n%C3%A9+Egyetem+GAMF+Kar/@46.8960799,19.6669509,17z/data=!3m1!4b1!4m5!3m4!1s0x4743da7a6c479e1d:0xc8292b3f6dc69e7f!8m2!3d46.8960763!4d19.6691396?hl=hu">Nagyobb térkép</a>
+<main>
+        <section>
+            <h1>Bemutatkozás</h1>
+            <p>Üdvözöljük az oldalunkon!</p>
+            <p>Ez a weboldal a két világháború között készült magyar filmekre hivatott felhívni a figyelmet.</p>
+            
+            <div class="media-container">
+                <video controls>
+                    <source src="./images/video1.mp4" type="video/mp4">
+                    A böngészője nem támogatja a HTML5 videók lejátszását.
+                </video>
+            </div>
+
+            <h3>Hyppolit, a lakáj (1931) részlet</h3>
+            <div class="media-container">
+                <iframe src="https://www.youtube.com/embed/NPgn87kSvY8?autoplay=1&mute=1&controls=1" allowfullscreen></iframe>
+            </div>
+
+            <h3>Meseautó (1934) részlet</h3>
+        </section>
+
+        <section>
+            <h2>Adatok</h2>
+            
+            <address>
+                <p>Ügyvezető: <strong>Valaki Az</strong></p>
+                <p>E-mail: <strong>valaki.az@beadando.hu</strong></p>
+            </address>
+
+            <div class="media-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2725.123456789!2d19.6669509!3d46.8960799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4743da7a6c479e1d%3A0xc8292b3f6dc69e7f!2sJohn+von+Neumann+University+GAMF+Faculty!5e0!3m2!1shu!2shu!4v1234567890" allowfullscreen></iframe>
+            </div>
+            
+            <a class="map-link" target="_blank" href="https://www.google.hu/maps/place/Pallasz+Ath%C3%A9n%C3%A9+Egyetem+GAMF+Kar/@46.8960799,19.6669509,17z/data=!3m1!4b1!4m5!3m4!1s0x4743da7a6c479e1d:0xc8292b3f6dc69e7f!8m2!3d46.8960763!4d19.6691396?hl=hu">Nagyobb térkép megtekintése</a>
+        </section>
+    </main>

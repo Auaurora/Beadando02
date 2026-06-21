@@ -1,10 +1,12 @@
-<aside>
+<main>
+<section>
 <h2>Üzenet:</h2>
-</aside>
-<div>
+<div  class="">
 <form>
 <textarea id="szoveg" name="szoveg" cols="40" rows="10"></textarea>
 <br>
-<input id="kuld" type="submit" value="Küld">
-</from>
+<button id="kuld" type="submit" onclick="window.location.reload();">Küld</button>
+</form>
 </div>
+</section>
+</main>
